@@ -43,11 +43,18 @@ public class App extends BaseAppNavigator {
 
     @Override
     public void registrarTelas() {
-        registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class, "principal.fxml", o->new JanelaPrincipal()));
-        registraTela("CADASTRO", new ScreenRegistryFXML(App.class, "cadastro.fxml", o->new JanelaCadastro(listaTelefonica)));
-        registraTela("LISTA", new ScreenRegistryFXML(App.class, "listar.fxml", o->new JanelaLista(listaTelefonica)));
+        registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class, "fxml/principal.fxml", o->new JanelaPrincipal()));
+        registraTela("CADASTRO", new ScreenRegistryFXML(App.class, "fxml/cadastro.fxml", o->new JanelaCadastro(listaTelefonica)));
+        registraTela("LISTA", new ScreenRegistryFXML(App.class, "fxml/listar.fxml", o->new JanelaLista(listaTelefonica)));
         
     }
+
+    @Override
+    public void atualizaEstilo() {
+        adicionarArquivoEstilo(getClass().getResource("css/estilo.css").toExternalForm());
+    }
+    
+
 
     
 

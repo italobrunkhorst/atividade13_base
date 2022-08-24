@@ -37,7 +37,7 @@ public abstract class BaseAppNavigator extends Application{
         registrarTelas();
 
         root = new StackPane();
-
+        
         String homeRegistry = getHome();
         if(homeRegistry != null){
             pushScreen(homeRegistry);
@@ -47,6 +47,8 @@ public abstract class BaseAppNavigator extends Application{
 
         cena = new Scene(root,Region.USE_PREF_SIZE,Region.USE_PREF_SIZE);
         this.palco = primaryStage;
+
+        atualizaEstilo();
 
         this.palco.setScene(cena);
         this.palco.setTitle(getAppTitle());
@@ -169,6 +171,14 @@ public abstract class BaseAppNavigator extends Application{
         return registroTelas.get(nome);
     }
 
+    public void adicionarArquivoEstilo(String arquivo){
+        root.getStylesheets().add(arquivo);
+    }
+
+    public void atualizaEstilo(){}
+
     public abstract void registrarTelas();
+
+
 
 }

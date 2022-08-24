@@ -19,7 +19,7 @@
    </padding>
 
    <left>
-      <VBox spacing="5.0" alignment="TOP_CENTER">
+      <VBox spacing="5.0" alignment="TOP_CENTER" styleClass="side-panel">
          <padding>
             <Insets topRightBottomLeft="20"/>
          </padding>
