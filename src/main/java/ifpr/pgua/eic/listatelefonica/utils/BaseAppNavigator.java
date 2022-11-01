@@ -177,33 +177,7 @@ public abstract class BaseAppNavigator extends Application{
 
     public void atualizaEstilo(){}
 
-    public abstract void registrarTelas();
-
-
-    public void registraTela(String nome, ScreenRegistry tela){
-        if(nome.isBlank() || nome.isEmpty() || nome == null){
-            throw new RuntimeException("[REGISTRA TELA] Nome inválido!");
-        }
-
-        if(tela == null){
-            throw new RuntimeException("[REGISTRA TELA] Tela inválida!");
-        }
-
-        if(registroTelas.containsKey(nome)){
-            throw new RuntimeException("[REGISTRA TELA] Tela já registrada!");
-        }
-
-        registroTelas.put(nome, tela);
-
-    }
-
-    private static ScreenRegistry pegaTela(String nome){
-        if(!registroTelas.containsKey(nome)){
-            throw new RuntimeException("[PEGA TELA] Tela não registrada!");
-        }
-
-        return registroTelas.get(nome);
-    }
+    
 
     public abstract void registrarTelas();
 
