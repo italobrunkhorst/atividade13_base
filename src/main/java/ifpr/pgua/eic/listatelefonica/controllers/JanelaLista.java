@@ -46,7 +46,7 @@ public class JanelaLista implements Initializable {
 
         if(contato != null){
             taDetalhes.appendText("Nome: "+contato.getNome()+"\n");
-            taDetalhes.appendText("Telefone: "+contato.getNome()+"\n");
+            taDetalhes.appendText("Telefone: "+contato.getTelefone()+"\n");
             taDetalhes.appendText("E-mail: "+contato.getEmail()+"\n");
             
         }
