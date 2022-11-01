@@ -19,13 +19,13 @@
    </padding>
 
    <left>
-      <VBox spacing="5.0" alignment="CENTER">
+      <VBox spacing="5.0" alignment="TOP_CENTER" styleClass="side-panel">
          <padding>
             <Insets topRightBottomLeft="20"/>
          </padding>
       
-         <Button text="Cadastrar" prefWidth="200"/>
-         <Button text="Listar" prefWidth="200"/>
+         <Button text="Cadastrar" prefWidth="150" onAction="#carregaTelaCadastro"/>
+         <Button text="Listar" prefWidth="150" onAction="#carregaTelaLista"/>
       </VBox>
    </left>
 

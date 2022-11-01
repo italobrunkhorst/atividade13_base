@@ -2,6 +2,7 @@ package ifpr.pgua.eic.listatelefonica.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ListaTelefonica {
@@ -34,6 +35,8 @@ public class ListaTelefonica {
      * @return true se conseguiu adicionar, false caso contrário
      */
     public boolean adicionarContato(String nome, String telefone, String email){
+        
+        
         if(buscar(email) == null){
             Contato contato = new Contato(nome, email, telefone);
             contatos.add(contato);

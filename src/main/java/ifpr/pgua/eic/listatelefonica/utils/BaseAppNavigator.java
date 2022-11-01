@@ -37,7 +37,7 @@ public abstract class BaseAppNavigator extends Application{
         registrarTelas();
 
         root = new StackPane();
-
+        
         String homeRegistry = getHome();
         if(homeRegistry != null){
             pushScreen(homeRegistry);
@@ -47,6 +47,8 @@ public abstract class BaseAppNavigator extends Application{
 
         cena = new Scene(root,Region.USE_PREF_SIZE,Region.USE_PREF_SIZE);
         this.palco = primaryStage;
+
+        atualizaEstilo();
 
         this.palco.setScene(cena);
         this.palco.setTitle(getAppTitle());
@@ -143,6 +145,40 @@ public abstract class BaseAppNavigator extends Application{
      * @return
      */
     public abstract String getAppTitle();
+
+    public void registraTela(String nome, ScreenRegistry tela){
+        if(nome.isBlank() || nome.isEmpty() || nome == null){
+            throw new RuntimeException("[REGISTRA TELA] Nome inválido!");
+        }
+
+        if(tela == null){
+            throw new RuntimeException("[REGISTRA TELA] Tela inválida!");
+        }
+
+        if(registroTelas.containsKey(nome)){
+            throw new RuntimeException("[REGISTRA TELA] Tela já registrada!");
+        }
+
+        registroTelas.put(nome, tela);
+
+    }
+
+    private static ScreenRegistry pegaTela(String nome){
+        if(!registroTelas.containsKey(nome)){
+            throw new RuntimeException("[PEGA TELA] Tela não registrada!");
+        }
+
+        return registroTelas.get(nome);
+    }
+
+    public void adicionarArquivoEstilo(String arquivo){
+        root.getStylesheets().add(arquivo);
+    }
+
+    public void atualizaEstilo(){}
+
+    public abstract void registrarTelas();
+
 
     public void registraTela(String nome, ScreenRegistry tela){
         if(nome.isBlank() || nome.isEmpty() || nome == null){
