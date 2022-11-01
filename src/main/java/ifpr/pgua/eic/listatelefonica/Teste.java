@@ -1,5 +1,7 @@
 package ifpr.pgua.eic.listatelefonica;
 
+import java.util.List;
+
 import ifpr.pgua.eic.listatelefonica.models.Contato;
 import ifpr.pgua.eic.listatelefonica.models.FabricaConexoes;
 import ifpr.pgua.eic.listatelefonica.models.daos.ContatoDAO;
@@ -14,10 +16,10 @@ public class Teste {
 
         ContatoDAO contatoDAO = new JDBCContatoDAO(fabrica);
 
-        Contato contato = new Contato("Zé", "ze@teste.com", "12345");
+        List<Contato> lista = contatoDAO.buscarTodos();
 
-        Result resultado = contatoDAO.inserir(contato);
-
-        System.out.println(resultado.getMsg());
+        for (Contato c : lista) {
+            System.out.println(c.getNome());
+        }
     }
 }
